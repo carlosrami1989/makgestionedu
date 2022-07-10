@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Modulos\Parametrizacion\Genero;
 use App\Models\Modulos\Parametrizacion\Ciudad;
 use App\Models\Modulos\Parametrizacion\Provincia;
+use App\Models\Modulos\Administracion\Docente;
 
 class tblDocente extends Controller
 {
@@ -39,6 +40,19 @@ class tblDocente extends Controller
             $provincia = Provincia::All();
 
             return response()->json(['provincia' => $provincia], 200);
+        } catch (Exception $e) {
+            //throw $th;
+            return response()->json(['msj' => $e->getMessage()], 500);
+        }
+    }
+
+    public function consultardocentes(){
+        try {
+            //code...
+            $docentes = Docente::All();
+             
+
+            return response()->json(['docente' => $docentes], 200);
         } catch (Exception $e) {
             //throw $th;
             return response()->json(['msj' => $e->getMessage()], 500);

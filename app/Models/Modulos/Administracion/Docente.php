@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Docente extends Model
 {
     use HasFactory;
-    protected $table = 'tb_docente';
+    protected $table = 'tb_docentes';
     /**
      * @var string
      */

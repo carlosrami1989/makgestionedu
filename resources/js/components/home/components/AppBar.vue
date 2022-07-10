@@ -269,7 +269,8 @@ export default {
 
                 },{
                   name:"Docentes",
-                      ruta:prefix+'',color:'pink'
+                      ruta:prefix+'/modulos/administracion/docente',
+                      color:'pink'
 
                 },{
                   name:"Pensiones",
@@ -291,7 +292,8 @@ export default {
                 color:'cyan darken-4'},
                 {
                   name:'Docente',
-                  icon: 'mdi-certificate', 
+                  icon: 'mdi-certificate',
+
                     items:[
                 {
                   name:"Ingreso de Notas",

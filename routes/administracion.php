@@ -79,6 +79,10 @@ Route::group(['prefix' => 'modulos/admision', 'middleware' => ['auth:web'], 'ver
         Route::post('generacionDocumento', 'tipo_desechos@createreporte');
 
 
+        
+        Route::get('docente', 'tblDocente@consultardocentes');
+
+
 
 
 

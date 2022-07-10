@@ -12,7 +12,7 @@ import dashboard from ".././components/modulos/dashboard";
 // import ingresodesechos from ".././components/modulos/Administracion/Mantenimiento/index.vue";
 // import departamento from ".././components/modulos/Parametrizacion/TiposDesechos/index.vue";
 import estudiante from ".././components/modulos/Administracion/estudiante.vue";
-
+import docente from ".././components/modulos/Administracion/docente.vue"; 
 
 // import Reportes from ".././components/modulos/Reporte/index.vue";
 
@@ -39,7 +39,14 @@ const home = [{
 
 
     },
- 
+    {
+        path: prefix +
+            "/modulos/administracion/docente",
+        name: "Docente",
+        component:docente,
+
+
+    }, 
 
 ];
 
