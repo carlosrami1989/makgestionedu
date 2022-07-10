@@ -265,7 +265,7 @@ export default {
                 icon: 'mdi-recycle-variant', 
                 items:[{
                   name:"Estudiante",
-                      ruta:prefix+'',color:'pink'
+                      ruta:prefix+'/modulos/administracion/estudiante',color:'pink'
 
                 },{
                   name:"Docentes",
