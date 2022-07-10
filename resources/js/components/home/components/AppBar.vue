@@ -3,6 +3,7 @@
        
    <v-navigation-drawer app
     v-model="drawer"
+    
     >
     <!-- -->   
       <v-list-item 
@@ -10,7 +11,7 @@
           color="teal lighten-3">
         <v-list-item-content   >
           <v-list-item-title class="text-h6"  >
-            Gestión de Desechos
+            Mak-Gestión de notas
           </v-list-item-title>
           <v-list-item-subtitle>
             Sisge-Ho
@@ -19,12 +20,56 @@
       </v-list-item>
 
       <v-divider></v-divider>
+<v-list>
+      <v-list-group
+        v-for="item in items"
+        :key="item.name"
+         v-model="item.active"
+        :prepend-icon="item.icon"
+         :color="item.color"
+        no-action
+      >
+        <template v-slot:activator>
+          <v-list-item-content>
+            <v-list-item-title   v-text="item.name"></v-list-item-title>
+          </v-list-item-content>
+        </template>
+
+        <v-list-item
+          v-for="child in item.items"
+          :key="child.name"
+        >
+          <v-list-item-content>
+            <!-- <v-list-item-title v-text="child.name"></v-list-item-title> -->
+           
+             <v-list-item-title>
+             <router-link
+                            :to=" prefijo +
+
+                                    child.ruta
+                            "
+                             
+                            >
+                            {{ child.name }}
+                             </router-link
+                        >
+                        
+                        </v-list-item-title>
+                        
+          </v-list-item-content>
+           <v-list-item-icon>
+              <v-icon color="green">mdi-file-document</v-icon>
+            </v-list-item-icon>
+        </v-list-item>
+      </v-list-group>
+    </v-list>
+
 
       <v-list
         dense
         nav
       >
-     <v-list-item-group>
+     <!-- <v-list-item-group>
         <v-list-item
              v-for="name in items"
                         :key="name.name"
@@ -54,7 +99,7 @@
                         ></v-list-item-title>
           </v-list-item-content>
         </v-list-item>
-      </v-list-item-group>
+      </v-list-item-group> -->
       </v-list>
     
   </v-navigation-drawer>
@@ -65,7 +110,7 @@
        @click.stop="drawer = !drawer"
        ></v-app-bar-nav-icon>
 
-      <v-toolbar-title> Sistema Gestión de Desechos</v-toolbar-title>
+      <v-toolbar-title>  Mak-Gestión de notas</v-toolbar-title>
 
       <v-spacer></v-spacer>
 <div v-for="item in usuario" :key="item.id">
@@ -197,24 +242,84 @@ export default {
           .then(function (response) {
  
             if (response.data.data[0].id_perfil==1) {
-              that.items.push( {name:'Dashboard',icon: 'mdi-view-dashboard', ruta:"/",color:'primary'},
-        {name:'Tipos de Desechos',icon: 'mdi-delete-variant', ruta:prefix+'/modulos/parametrizacion/tipodesechos',color:'pink'},
-         {name:'Clasificación de Desechos',icon: 'mdi-recycle-variant', ruta:prefix+'/modulos/parametrizacion/clasificaciondesechos',color:'cyan darken-4'},
-        {name:'Desechos por Descripción',icon: 'mdi-certificate', ruta:prefix+'/modulos/parametrizacion/desechosdescripcion',color:'purple'},
-         {name:'Ingreso de Desechos',icon: 'mdi-clipboard-check', ruta:prefix+'/modulos/administracion/ingreso',color:'green darken-4'},
+              that.items.push( 
+                {name:'Dashboard',icon: 'mdi-view-dashboard', 
+             
+                // items:[{
+                //   name:"prueb",
+                //      ruta:"/",color:'primary',
+
+                // }],
+                },
+                {name:'Rectorado',
+                icon: 'mdi-delete-variant',
+                color:'orange',
+                items:[{
+                  name:"Apro. de Notas",
+                  ruta:prefix+'',color:'pink'
+
+                }], 
+               
+                },
+                {name:'Secretaria',
+                icon: 'mdi-recycle-variant', 
+                items:[{
+                  name:"Estudiante",
+                      ruta:prefix+'',color:'pink'
+
+                },{
+                  name:"Docentes",
+                      ruta:prefix+'',color:'pink'
+
+                },{
+                  name:"Pensiones",
+                      ruta:prefix+'',color:'pink'
+
+                },{
+                  name:"Nomina",
+                      ruta:prefix+'',color:'pink'
+
+                },{
+                  name:"Egresos",
+                      ruta:prefix+'',color:'pink'
+
+                },{
+                  name:"Cronograma",
+                      ruta:prefix+'',color:'pink'
+
+                }], 
+                color:'cyan darken-4'},
+                {
+                  name:'Docente',
+                  icon: 'mdi-certificate', 
+                    items:[
+                {
+                  name:"Ingreso de Notas",
+                  ruta:prefix+'',color:'pink'
+                },{
+                  name:"Modificación de Notas",
+                  ruta:prefix+'',color:'pink'
+                }], 
+               
+                  ruta:prefix+'/modulos/parametrizacion/desechosdescripcion',
+                  color:'purple'
+                  },
+                {
+                  name:'Tutores',icon: 'mdi-clipboard-check', 
+                  ruta:prefix+'/modulos/administracion/ingreso',color:'green darken-4'},
          //{name:'Asignación de Perfil',icon: 'mdi-account-multiple-plus', ruta:prefix+'',color:'orange darken-4'},
-         {name:'Creación de Usuario',icon: 'mdi-account-lock', ruta:prefix+'/modulos/seguridad/registrar',color:'teal'},
-         {name:'Reportes General',icon: 'mdi-clipboard-text-multiple', ruta:prefix+'/modulos/reporte/mostrar',color:'red'},
+                
+                {name:'Reportes General',icon: 'mdi-clipboard-text-multiple', ruta:prefix+'/modulos/reporte/mostrar',color:'red'},
 
         //{name:'Departamentos',icon: 'mdi-file-document', ruta:prefix+'-',color:'green darken-4'},
-        {name:'Rotary Astillero',icon: 'mdi-earth', ruta:'-',color:'orange darken-4'});
-            } else {
-               that.items.push( {name:'Dashboard',icon: 'mdi-view-dashboard', ruta:prefix,color:'primary'},
-       
-         {name:'Ingreso de Desechos',icon: 'mdi-certificate', ruta:prefix+'/modulos/administracion/ingreso',color:'green darken-4'},
-       
-        {name:'Rotary Astillero',icon: 'mdi-earth', ruta:'',color:'orange darken-4'});
-            }
+               );
+                } 
+                else {
+               that.items.push( 
+                {name:'Dashboard',icon: 'mdi-view-dashboard', ruta:prefix,color:'primary'},
+                {name:'Ingreso de Desechos',icon: 'mdi-certificate', ruta:prefix+'/modulos/administracion/ingreso',color:'green darken-4'},
+                {name:'Rotary Astillero',icon: 'mdi-earth', ruta:'',color:'orange darken-4'});
+               }
            // that.usuario = response.data.data.id_perfil;
               console.log( response.data.data[0].id_perfil);
               

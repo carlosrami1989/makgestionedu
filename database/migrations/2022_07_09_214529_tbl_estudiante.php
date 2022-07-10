@@ -24,6 +24,7 @@ class TblEstudiante extends Migration
             $table->string('cedula', 10)->default('0000000000')->nullable();
             $table->string('telefono', 10)->default('0000000000')->nullable();
             $table->string('direccion', 150)->default('-')->nullable();
+            $table->string('sexo', 150)->default('-')->nullable();
             $table->string('direccion_secundaria', 150)->default('-')->nullable();
             $table->string('ciudad', 150)->default('-')->nullable();
             $table->string('provincia', 150)->default('-')->nullable();
