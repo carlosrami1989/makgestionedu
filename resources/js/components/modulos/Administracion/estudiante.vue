@@ -16,21 +16,37 @@
       :complete="e6 > 1"
       step="1"
     >
-     Selecciona la fecha
+     Seleccione el estudiante
       <small>Selecciona la fecha a convenir </small>
     </v-stepper-step>
 
     <v-stepper-content step="1">
       <v-card
        elevation="12">
+        <v-text-field
+        v-model="search"
+        append-icon="mdi-magnify"
+        label="Search"
+        single-line
+        hide-details
+      ></v-text-field>
       <v-card-text>
           <v-row justify="center">
+            
           
-    <v-date-picker date v-model="form.fecha"></v-date-picker>
+   
+    <!-- <v-date-picker date v-model="form.fecha"></v-date-picker> -->
   </v-row>
+
       </v-card-text>
-     
+      <v-data-table
+      :headers="headers"
+      :items="desserts"
+      :search="search"
+    ></v-data-table>
   </v-card>
+ 
+  <v-divider></v-divider>
       <v-btn
         color="primary"
         @click="e6 = 2"
@@ -202,17 +218,34 @@
         country: undefined,
         },
       form:{
-        celular:'',
-         hora:"15:00",
-        fecha: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),
-        articulo_cabecera_id:0,
+        ApellidoPaterno:'',
+        ApellidoMaterno:'',
+        PrimerNombre:'',
+        SegundoNombre:'',
         cedula:'',
-        paciente:'',
-        representante:'',
-          usuario: '',
-          comentario: '',
-           correo_electronico: '',
-      },
+        telefono:'',
+        direccion:'',
+        sexo:'',
+        direccion_secundaria:'',
+        ciudad:'',
+        provincia:'',
+        parroquia:'',
+        es_extranjero:'',
+        email:'',
+       },
+       headers: [
+          {
+            text: 'codigo',
+            align: 'start',
+            sortable: false,
+            value: 'id',
+          },
+          { text: 'Estudiante', value: 'des_tipo_desechos' },
+          { text: 'cedula', value: 'descripcion' },
+           { text: 'acciones', value: 'created_at' },
+          
+        ],
+       //reglas de validacion
       nameRulesTelefono: [],
     nameRulesCedula: [
         v => !!v || 'Campo es Requerido',
