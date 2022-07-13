@@ -35,4 +35,13 @@ class Estudiante extends Model
         'created_at',
         'updated_at'
     ];
+    protected $appends = [
+        'FULLNAME' 
+  ];
+  public function getFULLNAMEattribute()
+    {
+        $nombres =  $this->CtxApellidoPaterno.' '.$this->CtxApellidoMaterno.' '.$this->CtxPrimerNombre.' '.$this->CtxSegundoNombre;
+
+        return $nombres;
+    }
 }

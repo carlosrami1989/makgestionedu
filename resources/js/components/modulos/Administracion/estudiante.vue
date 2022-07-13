@@ -17,33 +17,18 @@
       step="1"
     >
      Seleccione el estudiante
-      <small>Selecciona la fecha a convenir </small>
+      <small>Selecciona al estudiante que desea editar </small>
     </v-stepper-step>
 
     <v-stepper-content step="1">
       <v-card
        elevation="12">
-        <v-text-field
-        v-model="search"
-        append-icon="mdi-magnify"
-        label="Search"
-        single-line
-        hide-details
-      ></v-text-field>
+        
       <v-card-text>
-          <v-row justify="center">
-            
           
-   
-    <!-- <v-date-picker date v-model="form.fecha"></v-date-picker> -->
-  </v-row>
 
       </v-card-text>
-      <v-data-table
-      :headers="headers"
-      :items="desserts"
-      :search="search"
-    ></v-data-table>
+     <estudiante-tabla></estudiante-tabla>
   </v-card>
  
   <v-divider></v-divider>
@@ -202,7 +187,7 @@
   export default {
     name: 'HomeFooter',
     data: () => ({
-        
+          search: '',
       mensaje_:"",
       color_alerta:"",
      datemenu:"",

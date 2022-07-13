@@ -53,6 +53,13 @@ Vue.component(
     require("./components/modulos/Administracion/PacientesComponents/informacionrepresentante.vue").default
 );
 //**  fin */
+/**componente estudiantes */
+Vue.component(
+    "estudiante-tabla",
+    require("./components/modulos/Administracion/EstudianteComponents/estudiante.vue").default
+);
+
+
 new Vue({
     store,
 
