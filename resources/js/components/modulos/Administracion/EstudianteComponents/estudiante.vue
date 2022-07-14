@@ -18,8 +18,8 @@
                 <template v-slot:item.id="{ item }">
                   <v-icon
                     color="primary"
-                     
-                    >mdi-file-document-edit</v-icon
+                     @click="GetEstudiante(item)"
+                    >mdi-select-all</v-icon
                   >
                 </template>   
               
@@ -54,7 +54,7 @@ export default {
                 
                 ],
 
-           
+           ListaForm:[],
          
             ListaEstudiante: [],
              
@@ -69,7 +69,13 @@ export default {
         /* Metodo que inicia cuando el usuario entrar al formulario */
     },
     methods: {  
-         
+          GetEstudiante(value){
+        
+        this.ListaForm = value;
+         console.log('estudiantefrom',this.ListaForm);
+          
+      },
+          
         ConsultarEstudiantes() {
             /* Metodo que realiza peticiones al servidor */
             let that = this;

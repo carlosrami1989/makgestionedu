@@ -79,5 +79,8 @@
         
       }
     },
+    methods:{
+     
+    },
   }
 </script>
