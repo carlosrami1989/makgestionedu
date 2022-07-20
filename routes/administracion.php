@@ -16,6 +16,16 @@ use Illuminate\Support\Facades\Route;
 Route::group(['prefix' => 'modulos/admision', 'middleware' => ['auth:web'], 'verified'], function () {
 
     /* SubModulo Medico */
+    Route::namespace('Modulos\Administracion')->prefix('estudiante')->group(function () {
+        //Modulo de Cirugia
+      //  Route::get('cargar_paciente/{nombre}', 'PacienteController@ConsultarEstudiantes');
+      Route::get('getEstudiante', 'tblEstudiante@ConsultarEstudiantes');
+        //Modulo de genero
+        //       Route::post('crearTipoDesechos', 'tipo_desechos@create');
+        //** */
+      
+    });
+    /* SubModulo Medico */
     Route::namespace('Modulos\Administracion')->prefix('paciente')->group(function () {
         //Modulo de Cirugia
         Route::get('cargar_paciente/{nombre}', 'PacienteController@ConsultarPaciente');

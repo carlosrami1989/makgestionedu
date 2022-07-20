@@ -13,6 +13,7 @@ class CreateAcademicosTable extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('academicos');
         Schema::create('academicos', function (Blueprint $table) {
             $table->id();
             $table->string('CtxDescripcion', 200)->nullable()->default('text');
@@ -27,6 +28,6 @@ class CreateAcademicosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('academicos');
+       
     }
 }

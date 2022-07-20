@@ -53,6 +53,24 @@ Vue.component(
     require("./components/modulos/Administracion/PacientesComponents/informacionrepresentante.vue").default
 );
 //**  fin */
+/**componente estudiantes */
+Vue.component(
+    "estudiante-tabla",
+    require("./components/modulos/Administracion/EstudianteComponents/estudiante.vue").default
+);
+
+Vue.component(
+    "estudiante-insert",
+    require("./components/modulos/Administracion/EstudianteComponents/estudianteInsert.vue").default
+);
+
+/**componente estudiantes */
+Vue.component(
+    "estudiante-representante",
+    require("./components/modulos/Administracion/EstudianteComponents/representante.vue").default
+);
+
+
 new Vue({
     store,
 

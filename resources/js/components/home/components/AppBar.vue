@@ -241,7 +241,7 @@ export default {
           .get(url)
           .then(function (response) {
  
-            if (response.data.data[0].id_perfil==1) {
+            
               that.items.push( 
                 {name:'Dashboard',icon: 'mdi-view-dashboard', 
              
@@ -315,15 +315,9 @@ export default {
 
         //{name:'Departamentos',icon: 'mdi-file-document', ruta:prefix+'-',color:'green darken-4'},
                );
-                } 
-                else {
-               that.items.push( 
-                {name:'Dashboard',icon: 'mdi-view-dashboard', ruta:prefix,color:'primary'},
-                {name:'Ingreso de Desechos',icon: 'mdi-certificate', ruta:prefix+'/modulos/administracion/ingreso',color:'green darken-4'},
-                {name:'Rotary Astillero',icon: 'mdi-earth', ruta:'',color:'orange darken-4'});
-               }
+                 
            // that.usuario = response.data.data.id_perfil;
-              console.log( response.data.data[0].id_perfil);
+               
               
           
           })
