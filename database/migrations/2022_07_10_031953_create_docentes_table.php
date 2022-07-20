@@ -14,7 +14,7 @@ class CreateDocentesTable extends Migration
     public function up()
     {
         
-          Schema::dropIfExists('tb_docente');
+          Schema::dropIfExists('tb_docentes');
           Schema::create('tb_docentes', function (Blueprint $table) {
             $table->id();
             $table->string('CtxApellidoPaterno', 200)->nullable()->default('text');

@@ -13,7 +13,8 @@ class CreateFamiliasTable extends Migration
      */
     public function up()
     {
-        Schema::create('familias', function (Blueprint $table) {
+        Schema::dropIfExists('tb_fanilias');
+        Schema::create('tb_familias', function (Blueprint $table) {
             $table->id();
             $table->string('MNombres', 200)->nullable()->default('text');
             $table->string('MApellidos', 200)->nullable()->default('text');
@@ -31,6 +32,7 @@ class CreateFamiliasTable extends Migration
             $table->string('PTelefono', 200)->nullable()->default('text');
             $table->string('PFecha_Nacimiento', 200)->nullable()->default('text');
             
+            $table->integer('id_EstadoCivil')->nullable()->default(1);
 
             $table->string('PARNombres', 200)->nullable()->default('text');
             $table->string('PARApellidos', 200)->nullable()->default('text');

@@ -27,7 +27,9 @@ class familia extends Model
        'PLugar_Trabajo',
        'PTelefono',
        'PFecha_Nacimiento',
-      
+
+       'id_EstadoCivil',
+       
        'PARNombres',
        'PARApellidos',
        'PAROcupacion',

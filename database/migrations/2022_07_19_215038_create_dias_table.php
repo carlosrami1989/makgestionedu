@@ -13,8 +13,8 @@ class CreateDiasTable extends Migration
      */
     public function up()
     {
-        Schema::dropIfExists('dias');
-        Schema::create('dias', function (Blueprint $table) {
+        Schema::dropIfExists('tb_dias');
+        Schema::create('tb_dias', function (Blueprint $table) {
             $table->id();
             $table->string('Descripcion', 200)->nullable()->default('text');
             $table->timestamps();

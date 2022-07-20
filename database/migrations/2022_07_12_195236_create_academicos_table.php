@@ -13,8 +13,8 @@ class CreateAcademicosTable extends Migration
      */
     public function up()
     {
-        Schema::dropIfExists('academicos');
-        Schema::create('academicos', function (Blueprint $table) {
+        Schema::dropIfExists('tb_academicos');
+        Schema::create('tb_academicos', function (Blueprint $table) {
             $table->id();
             $table->string('CtxDescripcion', 200)->nullable()->default('text');
             $table->timestamps();
