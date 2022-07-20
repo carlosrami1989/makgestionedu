@@ -13,8 +13,8 @@ class CreateCursosTable extends Migration
      */
     public function up()
     {
-        Schema::dropIfExists('cursos');
-        Schema::create('cursos', function (Blueprint $table) {
+        Schema::dropIfExists('tb_cursos');
+        Schema::create('tb_cursos', function (Blueprint $table) {
             $table->id();
             $table->integer('NivelAcademico')->nullable()->default(1);
             $table->string('CtxDescripcion', 200)->nullable()->default('text');

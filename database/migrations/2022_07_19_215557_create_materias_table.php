@@ -13,8 +13,8 @@ class CreateMateriasTable extends Migration
      */
     public function up()
     {
-        Schema::dropIfExists('materias');
-        Schema::create('materias', function (Blueprint $table) {
+        Schema::dropIfExists('tb_materias');
+        Schema::create('tb_materias', function (Blueprint $table) {
             $table->id();
             $table->string('Descripcion', 200)->nullable()->default('text');
             $table->timestamps();

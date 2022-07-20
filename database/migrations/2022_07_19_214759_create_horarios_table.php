@@ -13,8 +13,8 @@ class CreateHorariosTable extends Migration
      */
     public function up()
     {
-        Schema::dropIfExists('horarios');
-        Schema::create('horarios', function (Blueprint $table) {
+        Schema::dropIfExists('tb_horarios');
+        Schema::create('tb_horarios', function (Blueprint $table) {
             $table->id();
             $table->integer('id_curso')->nullable()->default(1);
             $table->integer('id_dia')->nullable()->default(1);

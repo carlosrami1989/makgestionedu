@@ -13,8 +13,8 @@ class CreateTurnosTable extends Migration
      */
     public function up()
     {
-        Schema::dropIfExists('turnos');
-        Schema::create('turnos', function (Blueprint $table) {
+        Schema::dropIfExists('tb_turnos');
+        Schema::create('tb_turnos', function (Blueprint $table) {
             $table->id();
             $table->string('Descripcion', 200)->nullable()->default('text');
             $table->timestamps();
