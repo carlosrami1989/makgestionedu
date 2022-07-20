@@ -98,7 +98,7 @@
                         ></v-date-picker>
                     </v-menu>
                 </v-col>
-
+                
                 <!-- <v-col cols="12" md="4">
                     <v-select
                         v-model="FormEstudiante.SelectGenero"
@@ -138,6 +138,10 @@
                     ></v-select>
                 </v-col> -->
             </v-row>
+            <v-divider></v-divider>
+            <v-col cols="12" md="4">
+                    <v-btn  color="primary" elevation="8" dark>Grabar</v-btn>
+                </v-col>
         </v-container>
     </v-form>
 </template>

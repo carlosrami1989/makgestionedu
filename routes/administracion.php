@@ -21,7 +21,7 @@ Route::group(['prefix' => 'modulos/admision', 'middleware' => ['auth:web'], 'ver
       //  Route::get('cargar_paciente/{nombre}', 'PacienteController@ConsultarEstudiantes');
       Route::get('getEstudiante', 'tblEstudiante@ConsultarEstudiantes');
         //Modulo de genero
-        //       Route::post('crearTipoDesechos', 'tipo_desechos@create');
+      Route::post('grabarEstudiante', 'tblEstudiante@createEstudiante');
         //** */
       
     });

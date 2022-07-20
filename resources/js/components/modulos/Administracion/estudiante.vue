@@ -23,17 +23,21 @@
                 </v-stepper-content>
 
                 <v-stepper-step editable :complete="e6 > 2" step="2">
-                   Creación/Modificación de estudiante
-                      <small>Realiza la Modificación en caso de que el estudiante hay sido selecionado </small>
+                    Creación/Modificación de estudiante
+                    <small
+                        >Realiza la Modificación en caso de que el estudiante
+                        hay sido selecionado
+                    </small>
                 </v-stepper-step>
 
                 <v-stepper-content step="2">
                     <v-card>
                         <v-card-text> </v-card-text>
-                        <estudiante-insert  ref="RefEstudianteInsert"></estudiante-insert>
-                      
+                        <estudiante-insert
+                            ref="RefEstudianteInsert"
+                        ></estudiante-insert>
                     </v-card>
-                    <v-btn color="primary" @click="e6 = 3"> Siguiente </v-btn>
+                    <v-btn color="primary" @click="GrabarEstudiante()"> Siguiente </v-btn>
                     <v-btn text> Cancel </v-btn>
                 </v-stepper-content>
 
@@ -52,7 +56,6 @@
           :error-messages="nameRulesTelefono"
        :preferred-countries="['ec', 'gb', 'ua', 'us']"
        v-model="form.myphone"></vue-tel-input-vuetify> -->
- 
                     </v-card>
                     <!-- loader = 'loading4' -->
                     <v-btn
@@ -145,13 +148,75 @@ export default {
     methods: {
         SetEstudiante() {
             this.e6 = 2;
-            console.log("aqui");
-            console.log("listaprincipal", this.$refs.RefEstudiante.ListaForm);
- 
-  this.$refs.RefEstudianteInsert.FormEstudiante.CtxApellidoPaterno == this.$refs.RefEstudiante.ListaForm.CtxApellidoPaterno;
-  
- 
+             
+           
+            // sexo: "",
+            // direccion_secundaria: "",
+            // ciudad: "",
+            // provincia: "",
+            // parroquia: "",
+            // es_extranjero: "",
+            // email: "",
+            // CtxNombre: "",
+            //**aqui envio la lista por medio de la refrencia de ambas listas */
+            this.$refs.RefEstudianteInsert.FormEstudiante.CtxApellidoPaterno =
+                this.$refs.RefEstudiante.ListaForm.CtxApellidoPaterno;
+                  this.$refs.RefEstudianteInsert.FormEstudiante.CtxApellidoMaterno =
+                this.$refs.RefEstudiante.ListaForm.CtxApellidoMaterno;
+                  this.$refs.RefEstudianteInsert.FormEstudiante.CtxPrimerNombre =
+                this.$refs.RefEstudiante.ListaForm.CtxPrimerNombre;
+                  this.$refs.RefEstudianteInsert.FormEstudiante.CtxSegundoNombre =
+                this.$refs.RefEstudiante.ListaForm.CtxSegundoNombre;
+                  this.$refs.RefEstudianteInsert.FormEstudiante.cedula =
+                this.$refs.RefEstudiante.ListaForm.cedula;
+                  this.$refs.RefEstudianteInsert.FormEstudiante.telefono =
+                this.$refs.RefEstudiante.ListaForm.telefono;
+                  this.$refs.RefEstudianteInsert.FormEstudiante.direccion =
+                this.$refs.RefEstudiante.ListaForm.direccion;
+                 this.$refs.RefEstudianteInsert.FormEstudiante.id =
+                this.$refs.RefEstudiante.ListaForm.id;
+                console.log( this.$refs.RefEstudianteInsert.FormEstudiante); 
+               
+             
+        },
+
+         GrabarEstudiante() {
+            this.e6 = 3;
             
+            
+        let that = this;
+        let url =
+          this.$store.getters.getRuta +
+          "/modulos/admision/estudiante/grabarEstudiante";
+        
+        axios
+          .post(url,that.$refs.RefEstudianteInsert.FormEstudiante)
+          .then(function (response) {
+           console.log(response);
+           
+
+           // loader.hide();
+          })
+          .catch((error) => {
+            let objeto = [];
+              objeto = Object.values(error.response.data.errors);
+            //   console.log(objeto);
+            //   console.log(objeto.length);
+              
+              for (let index = 0; index < objeto.length; index++) {
+                 // const element = array[index];
+                   // console.log(objeto.[index][0]);
+                  //that.mensajeAler(objeto[index][0],false);
+                  
+              }
+         //that.mensajeAler(response.data.data,false);
+            //Errores de validación
+            //loader.hide();
+           
+          });
+           ///this.consultasPaciente() ;
+      
+             
         },
     },
 
